@@ -1,20 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap");
 
 :root {
-  /* Palette: charcoal + safety orange */
-  --ink-950: #1c1f23;
-  --ink-900: #2e343b;
-  --ink-800: #3a424b;
-  --steel-600: #4b5563;
-  --steel-400: #9ca3af;
-  --paper-100: #f5f5f3;
-  --paper-050: #fafaf9;
-  --orange-500: #ff6b1a;
-  --orange-600: #d9480f;
-  --orange-050: #fff3eb;
-  --line: rgba(28, 31, 35, 0.12);
-  --line-strong: #d6d8db;
-  --line-soft: #ecedef;
+  /* Palette: RBF Slate Navy + Silver */
+  --ink-950: #2a3b57;
+  --ink-900: #1f2c42;
+  --ink-800: #3b4e6e;
+  --steel-600: #566170;
+  --steel-400: #9aa3ae;
+  --paper-100: #f4f5f7;
+  --paper-050: #fafbfc;
+  --accent: #2a3b57;
+  --accent-strong: #1f2c42;
+  --accent-050: #eef1f5;
+  --silver: #9aa3ae;
+  --silver-light: #c3cad2;
+  --line: rgba(42, 59, 87, 0.12);
+  --line-strong: #c3cad2;
+  --line-soft: #e4e8ec;
 
   --font-display: "Libre Franklin", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -70,7 +72,7 @@ img {
   align-items: center;
   gap: 10px;
   padding: 15px 30px;
-  background: var(--orange-500);
+  background: var(--accent);
   color: #fff;
   font-family: var(--font-display);
   font-weight: 700;
@@ -83,7 +85,7 @@ img {
 }
 
 .btn:hover {
-  background: var(--orange-600);
+  background: var(--accent-strong);
   transform: translateY(-1px);
 }
 
@@ -101,7 +103,7 @@ img {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
-  color: var(--orange-500);
+  color: var(--silver-light);
   margin-bottom: 10px;
 }
 
@@ -223,18 +225,22 @@ section {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--orange-600);
+  color: var(--accent);
 }
 
 .eyebrow-line::before {
   content: "";
   width: 28px;
   height: 3px;
-  background: var(--orange-500);
+  background: var(--accent);
 }
 
 .eyebrow-light {
-  color: var(--orange-500);
+  color: var(--silver-light);
+}
+
+.eyebrow-light::before {
+  background: var(--silver-light);
 }
 
 .sec-head {
@@ -286,7 +292,7 @@ section {
   padding: 110px 0;
   color: #fff;
   background:
-    linear-gradient(90deg, rgba(28, 31, 35, 0.92) 0%, rgba(28, 31, 35, 0.75) 45%, rgba(28, 31, 35, 0.35) 100%),
+    linear-gradient(90deg, rgba(31, 44, 66, 0.92) 0%, rgba(31, 44, 66, 0.75) 45%, rgba(31, 44, 66, 0.35) 100%),
     var(--hero-img) center / cover no-repeat;
 }
 
@@ -300,7 +306,7 @@ section {
 }
 
 .hero-title span {
-  color: var(--orange-500);
+  color: var(--silver-light);
 }
 
 .hero-lead {
@@ -318,9 +324,18 @@ section {
   margin-top: 36px;
 }
 
+.hero .btn:not(.btn-outline) {
+  background: #fff;
+  color: var(--ink-950);
+}
+
+.hero .btn:not(.btn-outline):hover {
+  background: var(--silver-light);
+}
+
 .stat-bar {
-  background: var(--orange-500);
-  color: #fff;
+  background: var(--silver-light);
+  color: var(--ink-950);
 }
 
 .stat-bar-inner {
@@ -333,7 +348,7 @@ section {
   align-items: center;
   gap: 16px;
   padding: 28px 24px;
-  border-left: 1px solid rgba(255, 255, 255, 0.28);
+  border-left: 1px solid rgba(42, 59, 87, 0.2);
 }
 
 .stat:first-child {
@@ -360,7 +375,7 @@ section {
     min-height: 0;
     padding: 72px 0 80px;
     background:
-      linear-gradient(180deg, rgba(28, 31, 35, 0.8) 0%, rgba(28, 31, 35, 0.92) 100%),
+      linear-gradient(180deg, rgba(31, 44, 66, 0.8) 0%, rgba(31, 44, 66, 0.92) 100%),
       var(--hero-img) center / cover no-repeat;
   }
   .hero-lead {
@@ -412,7 +427,7 @@ section {
 }
 
 .svc-card:hover {
-  border-color: var(--orange-500);
+  border-color: var(--accent);
   transform: translateY(-3px);
 }
 
@@ -437,7 +452,7 @@ section {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--orange-600);
+  color: var(--accent);
 }
 
 .svc-card h3 {
@@ -462,7 +477,7 @@ section {
 }
 
 .svc-cta .svc-num {
-  color: var(--orange-500);
+  color: var(--silver-light);
 }
 
 .svc-cta h3 {
@@ -480,7 +495,7 @@ section {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
-  color: var(--orange-500);
+  color: var(--silver-light);
 }
 
 @media (max-width: 960px) {
@@ -522,7 +537,7 @@ section {
 .process {
   padding: 36px 32px;
   background: var(--ink-950);
-  border-top: 4px solid var(--orange-500);
+  border-top: 4px solid var(--silver-light);
   border-radius: 6px;
 }
 
@@ -560,8 +575,8 @@ section {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--orange-500);
-  color: #fff;
+  background: var(--silver-light);
+  color: var(--ink-950);
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 14px;
@@ -608,7 +623,7 @@ section {
 }
 
 .ind-card:hover {
-  background: var(--orange-050);
+  background: var(--accent-050);
 }
 
 .ind-card h3 {
@@ -626,7 +641,7 @@ section {
   left: 0;
   width: 20px;
   height: 3px;
-  background: var(--orange-500);
+  background: var(--accent);
 }
 
 .ind-card p {
@@ -689,7 +704,7 @@ section {
 .why-list svg {
   flex-shrink: 0;
   margin-top: 2px;
-  color: var(--orange-500);
+  color: var(--silver-light);
 }
 
 .why-list h4 {
@@ -752,8 +767,8 @@ section {
 }
 
 .city-tags li:last-child {
-  background: var(--orange-500);
-  border-color: var(--orange-500);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 
@@ -790,7 +805,7 @@ section {
 }
 
 :focus-visible {
-  outline: 2px solid var(--orange-500);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -834,7 +849,7 @@ section {
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 400;
-  color: var(--orange-600);
+  color: var(--accent);
   letter-spacing: 2px;
   text-transform: uppercase;
   margin: 0 0 40px;
@@ -863,7 +878,7 @@ section {
   background: #fff;
   border: 1px solid var(--line-strong);
   border-radius: 6px;
-  box-shadow: 0 12px 64px rgba(28, 31, 35, 0.12);
+  box-shadow: 0 12px 64px rgba(31, 44, 66, 0.12);
   overflow: hidden;
 }
 
@@ -942,7 +957,7 @@ section {
 .rs-form select:focus,
 .rs-form textarea:focus {
   border-color: var(--ink-950);
-  box-shadow: 0 0 0 3px rgba(255, 107, 26, 0.18);
+  box-shadow: 0 0 0 3px rgba(42, 59, 87, 0.18);
   background: #fff;
 }
 
@@ -980,7 +995,7 @@ section {
 
 .rs-drop:hover {
   border-color: var(--ink-950);
-  background: var(--orange-050);
+  background: var(--accent-050);
 }
 
 .rs-drop input[type="file"] {
@@ -1027,7 +1042,7 @@ section {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 4px 18px rgba(28, 31, 35, 0.16);
+  box-shadow: 0 4px 18px rgba(31, 44, 66, 0.16);
   margin-top: 12px;
 }
 

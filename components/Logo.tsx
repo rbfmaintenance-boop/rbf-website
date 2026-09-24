@@ -25,8 +25,8 @@ export default function Logo({
       aria-label="RBF Maintenance"
       style={{ display: "block" }}
     >
-      <path fill="var(--orange-500)" fillRule="evenodd" transform={MARK_T} d={MARK_D} />
-      <path fill={dark ? "rgba(255, 255, 255, 0.35)" : "var(--steel-400)"} transform={DIVIDER_T} d={DIVIDER_D} />
+      <path fill={dark ? "#fff" : "var(--ink-950)"} fillRule="evenodd" transform={MARK_T} d={MARK_D} />
+      <path fill={dark ? "var(--silver-light)" : "var(--silver)"} transform={DIVIDER_T} d={DIVIDER_D} />
       <path fill={dark ? "#fff" : "var(--ink-950)"} transform={WORD_T} d={WORD_D} />
     </svg>
   );
