@@ -17,8 +17,7 @@ export default function Contact() {
           <div className="c-info-item">
             <div className="c-info-item-label">Phone</div>
             <div className="c-info-item-value">
-              {/* TODO: RBF phone number */}
-              <a href="tel:">(000) 000-0000</a>
+              <a href="tel:+15366666991">(536) 666-6991</a>
             </div>
           </div>
           <div className="c-info-item">
