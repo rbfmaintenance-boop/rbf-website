@@ -6,27 +6,27 @@ const SERVICES = [
   {
     title: "Electrical",
     desc: "Electrical diagnostics, circuit installation, panel service, and interior and exterior lighting solutions.",
-    img: "https://buildategroup.com/wp-content/uploads/2026/05/electrical.jpg",
+    img: "/images/rbf-electrical.webp",
   },
   {
     title: "Plumbing",
     desc: "Leak detection, drain and piping repairs, fixture installation, and water heater replacement.",
-    img: "https://buildategroup.com/wp-content/uploads/2026/05/plumbing.jpg",
+    img: "/images/rbf-plumbing.webp",
   },
   {
     title: "HVAC",
     desc: "Heating and cooling repairs, scheduled preventive maintenance, and equipment replacement.",
-    img: "https://buildategroup.com/wp-content/uploads/2026/05/hvac.jpg",
+    img: "/images/rbf-hvac.webp",
   },
   {
     title: "Flooring & Surfaces",
     desc: "Installation and repair of tile, luxury vinyl, carpet tile, and concrete surfaces for high-traffic environments.",
-    img: "https://buildategroup.com/wp-content/uploads/2026/05/flooring.jpg",
+    img: "/images/rbf-flooring.webp",
   },
   {
     title: "Drywall & Interiors",
     desc: "Drywall repair, painting, finish work, and interior improvements ranging from single rooms to full suites.",
-    img: "https://buildategroup.com/wp-content/uploads/2026/05/drywall.jpg",
+    img: "/images/rbf-drywall.png",
   },
 ];
 
