@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Request Service | RBF Maintenance",
   description:
-    "Submit a maintenance request to RBF Maintenance for electrical, plumbing, HVAC, flooring, or interior repairs at your commercial property.",
+    "Submit a maintenance request to RBF Maintenance for electrical, plumbing, HVAC, flooring, or interior repairs at your commercial property in Illinois.",
 };
 
 export default function RequestServicePage() {

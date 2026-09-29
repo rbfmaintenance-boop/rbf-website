@@ -1,9 +1,9 @@
 import SectionHead from "./SectionHead";
 
-const CITIES = ["Chicago", "Naperville", "Aurora", "Springfield", "Peoria", "Rockford", "Statewide Coverage"];
+const CITIES = ["Chicago", "Naperville", "Aurora", "Springfield", "Peoria", "Rockford", "All of Illinois"];
 
 const POINTS = [
-  { title: "Centralized Management", desc: "A dedicated coordinator oversees work across all of your locations." },
+  { title: "Centralized Management", desc: "A dedicated coordinator oversees work across all of your Illinois locations." },
   { title: "Uniform Standards", desc: "Consistent procedures and quality controls at every site." },
   { title: "Responsive Scheduling", desc: "Technicians dispatched according to location and priority." },
   { title: "Scalable Capacity", desc: "Equipped to support individual buildings and multi-site portfolios alike." },
@@ -15,8 +15,8 @@ export default function ServiceArea() {
       <div className="wrap">
         <SectionHead
           eyebrow="Service Area"
-          title="Regional coverage for your portfolio."
-          lead="We support commercial properties across urban and suburban markets alike. Wherever your buildings are located, our team provides the reach and coordination to service them efficiently."
+          title="Serving commercial properties across Illinois."
+          lead="RBF Maintenance works exclusively in Illinois, from the Chicago area to Springfield. Wherever your Illinois properties are located, our team provides the reach and coordination to service them efficiently."
         />
         <ul className="city-tags">
           {CITIES.map((c) => (

@@ -39,8 +39,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
-            Electrical, plumbing, HVAC, flooring, and interior repairs, coordinated by one
-            accountable team from request to closeout.
+            Electrical, plumbing, HVAC, flooring, and interior repairs for commercial properties
+            across Illinois, coordinated by one accountable team from request to closeout.
           </motion.p>
 
           <motion.div

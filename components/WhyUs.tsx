@@ -36,7 +36,7 @@ export default function WhyUs() {
         </div>
         <div className="why-photo">
           <Image
-            src="/images/rbf-crew.jpg"
+            src="/images/rbf-crew.webp"
             alt="RBF Maintenance crew reviewing plans on site"
             fill
             sizes="(max-width: 900px) 100vw, 520px"
