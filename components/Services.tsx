@@ -6,27 +6,27 @@ const SERVICES = [
   {
     title: "Electrical",
     desc: "Electrical diagnostics, circuit installation, panel service, and interior and exterior lighting solutions.",
-    img: "/images/rbf-electrical.webp",
+    img: "/images/rbf-electrical.jpg",
   },
   {
     title: "Plumbing",
     desc: "Leak detection, drain and piping repairs, fixture installation, and water heater replacement.",
-    img: "/images/rbf-plumbing.webp",
+    img: "/images/rbf-plumbing.jpg",
   },
   {
     title: "HVAC",
     desc: "Heating and cooling repairs, scheduled preventive maintenance, and equipment replacement.",
-    img: "/images/rbf-hvac.webp",
+    img: "/images/rbf-hvac.jpg",
   },
   {
     title: "Flooring & Surfaces",
     desc: "Installation and repair of tile, luxury vinyl, carpet tile, and concrete surfaces for high-traffic environments.",
-    img: "/images/rbf-flooring.webp",
+    img: "/images/rbf-flooring.jpg",
   },
   {
     title: "Drywall & Interiors",
     desc: "Drywall repair, painting, finish work, and interior improvements ranging from single rooms to full suites.",
-    img: "/images/rbf-drywall.png",
+    img: "/images/rbf-drywall.jpg",
   },
 ];
 
