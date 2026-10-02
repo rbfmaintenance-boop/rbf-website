@@ -2,7 +2,7 @@ import SectionHead from "./SectionHead";
 
 const STEPS = [
   { title: "Submit a request", desc: "Send the details and photos through our online form or by phone." },
-  { title: "We assess and schedule", desc: "A coordinator reviews the scope and books the right technician." },
+  { title: "We assess and schedule", desc: "A coordinator reviews the scope and assigns it to our specialized in-house technicians." },
   { title: "Work is completed", desc: "Our team performs the work with minimal disruption to your site." },
   { title: "You receive a report", desc: "Photos and service notes are delivered at closeout." },
 ];
