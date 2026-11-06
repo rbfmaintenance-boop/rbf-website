@@ -1,15 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import { useRef, useState } from "react";
+import { submitForm } from "@/lib/submitForm";
 
 const SERVICES = ["Electrical", "Plumbing", "HVAC", "Repairs", "Renovation"];
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [error, setError] = useState("");
+  const startedAt = useRef(Date.now());
 
-  if (submitted) {
+  if (status === "sent") {
     return (
-      <p className="contact-thanks">
+      <p className="contact-thanks" role="status">
         Thank you for contacting RBF Maintenance. A member of our team will be in touch shortly.
       </p>
     );
@@ -18,16 +22,29 @@ export default function ContactForm() {
   return (
     <form
       className="contact-form"
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        setSubmitted(true);
+        setError("");
+        setStatus("sending");
+        try {
+          await submitForm("contact", e.currentTarget, startedAt.current);
+          setStatus("sent");
+        } catch (err) {
+          setError((err as Error).message);
+          setStatus("idle");
+        }
       }}
     >
-      <input required name="name" type="text" placeholder="Your Name" />
-      <input name="company" type="text" placeholder="Company" />
-      <input required name="email" type="email" placeholder="Email Address" />
-      <input name="phone" type="tel" placeholder="Phone Number" />
-      <select required name="service" defaultValue="">
+      <label className="sr-only" htmlFor="cf-name">Your name (required)</label>
+      <input id="cf-name" required name="name" type="text" placeholder="Your Name" autoComplete="name" maxLength={100} />
+      <label className="sr-only" htmlFor="cf-company">Company</label>
+      <input id="cf-company" name="company" type="text" placeholder="Company" autoComplete="organization" maxLength={150} />
+      <label className="sr-only" htmlFor="cf-email">Email address (required)</label>
+      <input id="cf-email" required name="email" type="email" placeholder="Email Address" autoComplete="email" maxLength={200} />
+      <label className="sr-only" htmlFor="cf-phone">Phone number</label>
+      <input id="cf-phone" name="phone" type="tel" placeholder="Phone Number" autoComplete="tel" maxLength={40} />
+      <label className="sr-only" htmlFor="cf-service">Service needed (required)</label>
+      <select id="cf-service" required name="service" defaultValue="">
         <option value="" disabled>
           Service Needed
         </option>
@@ -37,8 +54,23 @@ export default function ContactForm() {
           </option>
         ))}
       </select>
-      <textarea required name="message" placeholder="Tell us about your project..." rows={8} />
-      <button type="submit">Send Message</button>
+      <label className="sr-only" htmlFor="cf-message">Message (required)</label>
+      <textarea id="cf-message" required name="message" placeholder="Tell us about your project..." rows={8} maxLength={5000} />
+      <div className="hp-field" aria-hidden="true">
+        <label htmlFor="cf-website">Leave this field empty</label>
+        <input id="cf-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+      {error && (
+        <p className="form-error" role="alert">
+          {error}
+        </p>
+      )}
+      <p className="form-note">
+        We use your details only to answer your message. See our <Link href="/privacy">Privacy Policy</Link>.
+      </p>
+      <button type="submit" disabled={status === "sending"}>
+        {status === "sending" ? "Sending..." : "Send Message"}
+      </button>
     </form>
   );
 }

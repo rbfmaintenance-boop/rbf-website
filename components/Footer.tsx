@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import { LEGAL_NAME } from "@/lib/company";
 
 export default function Footer() {
   return (
@@ -22,9 +23,15 @@ export default function Footer() {
             )
           )}
         </nav>
-        <p className="footer-copy">
-          © 2026 RBF MAINTENANCE — All Rights Reserved — Illinois
-        </p>
+        <div>
+          <p className="footer-copy">
+            © {new Date().getFullYear()} {LEGAL_NAME} · All rights reserved · Illinois
+          </p>
+          <nav className="footer-legal" aria-label="Legal">
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Use</Link>
+          </nav>
+        </div>
       </div>
     </footer>
   );

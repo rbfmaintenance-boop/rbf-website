@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import { useRef, useState } from "react";
+import { submitForm } from "@/lib/submitForm";
 
 const TRADES = [
   "Electrical",
@@ -18,12 +20,14 @@ const URGENCY = [
 ];
 
 export default function RequestServiceForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [error, setError] = useState("");
   const [files, setFiles] = useState<File[]>([]);
+  const startedAt = useRef(Date.now());
 
-  if (submitted) {
+  if (status === "sent") {
     return (
-      <p style={{ margin: 0, fontSize: 16, color: "var(--ink-950)", lineHeight: 1.7 }}>
+      <p role="status" style={{ margin: 0, fontSize: 16, color: "var(--ink-950)", lineHeight: 1.7 }}>
         Thank you. Your service request has been received. A coordinator will review the details
         and contact you to confirm scheduling. Emergency requests are prioritized.
       </p>
@@ -33,9 +37,17 @@ export default function RequestServiceForm() {
   return (
     <form
       className="rs-form"
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        setSubmitted(true);
+        setError("");
+        setStatus("sending");
+        try {
+          await submitForm("service", e.currentTarget, startedAt.current, files);
+          setStatus("sent");
+        } catch (err) {
+          setError((err as Error).message);
+          setStatus("idle");
+        }
       }}
     >
       <SectionLabel>Contact Information</SectionLabel>
@@ -109,7 +121,7 @@ export default function RequestServiceForm() {
             type="file"
             name="photos"
             multiple
-            accept="image/*"
+            accept="image/jpeg,image/png,image/webp,image/gif,image/heic,image/heif"
             onChange={(e) => {
               const next = Array.from(e.target.files ?? []).slice(0, 4);
               setFiles(next);
@@ -127,8 +139,21 @@ export default function RequestServiceForm() {
         )}
       </div>
 
-      <button type="submit" className="rs-submit">
-        Submit Work Order
+      <div className="hp-field" aria-hidden="true">
+        <label htmlFor="rs-website">Leave this field empty</label>
+        <input id="rs-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+      {error && (
+        <p className="form-error" role="alert">
+          {error}
+        </p>
+      )}
+      <p className="form-note">
+        We use your details and photos only to review, schedule and do the work. We never post your photos
+        without your written OK. See our <Link href="/privacy">Privacy Policy</Link>.
+      </p>
+      <button type="submit" className="rs-submit" disabled={status === "sending"}>
+        {status === "sending" ? "Sending..." : "Submit Work Order"}
       </button>
     </form>
   );
