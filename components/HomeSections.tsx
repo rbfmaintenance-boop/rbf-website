@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
+import { FootprintMap, IllinoisMap } from "./Maps";
 import { PHONE_DISPLAY, PHONE_HREF, CONTACT_EMAIL } from "@/lib/company";
 
 const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=2000&q=80`;
@@ -8,35 +9,49 @@ const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit
 export function Hero() {
   return (
     <section className="x-hero">
-      <div className="x-hero-grid">
-        <div className="x-hero-copy">
-          <h1>Repairs and maintenance for commercial properties across Illinois.</h1>
-          <p className="x-hero-lead">
-            Electrical, plumbing, HVAC and interior work for property and facility managers. Send one request. We
-            schedule it, do the work and send you photos when it&apos;s done.
-          </p>
-          <div className="x-actions">
-            <Link href="/request-service" className="x-btn">
-              Request service
-            </Link>
-            <a href={PHONE_HREF} className="x-btn x-btn--ghost">
-              Call {PHONE_DISPLAY}
-            </a>
+      <Image
+        src={photo("photo-1785682118449-21da8825754d")}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="x-hero-bg"
+      />
+      <div className="x-hero-shade" aria-hidden="true" />
+      <div className="x-wrap x-hero-inner">
+        <h1>Repairs and maintenance for commercial properties across Illinois.</h1>
+        <p className="x-hero-lead">
+          Electrical, plumbing, HVAC and interior work for property and facility managers. Send one request. We
+          schedule it, do the work and send you photos when it&apos;s done.
+        </p>
+        <div className="x-actions">
+          <Link href="/request-service" className="x-btn x-btn--light">
+            Request service
+          </Link>
+          <a href={PHONE_HREF} className="x-btn x-btn--outline-light">
+            Call {PHONE_DISPLAY}
+          </a>
+        </div>
+      </div>
+      <div className="x-creds-band">
+        <dl className="x-wrap x-creds">
+          <div>
+            <dt>Since 2000</dt>
+            <dd>Buildate&apos;s track record, now in Illinois</dd>
           </div>
-          <p className="x-hero-note">
-            RBF Maintenance is a sister company of Buildate, a commercial contractor serving property managers since
-            2000.
-          </p>
-        </div>
-        <div className="x-hero-photo">
-          <Image
-            src={photo("photo-1785682118449-21da8825754d")}
-            alt="Technician on a lift working on ceiling systems in a commercial building"
-            fill
-            priority
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
-        </div>
+          <div>
+            <dt>8 trades</dt>
+            <dd>One request covers them all</dd>
+          </div>
+          <div>
+            <dt>Statewide</dt>
+            <dd>Chicago area to Springfield</dd>
+          </div>
+          <div>
+            <dt>Emergency service</dt>
+            <dd>Urgent requests go first</dd>
+          </div>
+        </dl>
       </div>
     </section>
   );
@@ -92,21 +107,69 @@ const STEPS = [
 
 export function Process() {
   return (
-    <section id="how-it-works" className="x-section x-section--mist">
-      <div className="x-wrap">
-        <h2 className="x-h2">How a job runs</h2>
-        <p className="x-intro">One coordinator stays your contact from the first call to the closeout.</p>
-        <ol className="x-steps">
-          {STEPS.map(([title, text], i) => (
-            <li key={title} className="x-step">
-              <span className="x-step-num" aria-hidden="true">
-                {i + 1}
-              </span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </li>
-          ))}
-        </ol>
+    <section id="how-it-works" className="x-section x-dark">
+      <div className="x-wrap x-process">
+        <div>
+          <h2 className="x-h2">How a job runs</h2>
+          <p className="x-intro">One coordinator stays your contact from the first call to the closeout.</p>
+          <ol className="x-timeline">
+            {STEPS.map(([title, text], i) => (
+              <li key={title}>
+                <span className="x-timeline-node" aria-hidden="true">
+                  {i + 1}
+                </span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <figure className="x-report">
+          <div className="x-report-head">
+            <span className="x-report-title">Closeout report</span>
+            <span className="x-report-tag">Sample</span>
+          </div>
+          <dl className="x-report-meta">
+            <div>
+              <dt>Work order</dt>
+              <dd>1042</dd>
+            </div>
+            <div>
+              <dt>Trade</dt>
+              <dd>HVAC</dd>
+            </div>
+            <div>
+              <dt>Property</dt>
+              <dd>Retail center, suite B</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd className="x-report-done">Completed</dd>
+            </div>
+          </dl>
+          <div className="x-report-block">
+            <h4>Work performed</h4>
+            <p>
+              Replaced the condenser fan motor on rooftop unit 3. Checked refrigerant pressures and cleaned the
+              coils. Unit is cooling to setpoint.
+            </p>
+          </div>
+          <div className="x-report-photo">
+            <Image
+              src={photo("photo-1705579605238-24a90c8799c5")}
+              alt=""
+              fill
+              sizes="(max-width: 900px) 90vw, 420px"
+            />
+            <span>6 photos attached</span>
+          </div>
+          <ul className="x-report-checks">
+            <li>Work area cleaned</li>
+            <li>Site contact signed off</li>
+            <li>Photos and notes sent to the property manager</li>
+          </ul>
+          <figcaption className="sr-only">Sample of the closeout report you receive after every job</figcaption>
+        </figure>
       </div>
     </section>
   );
@@ -115,15 +178,10 @@ export function Process() {
 export function SisterCompany() {
   return (
     <section className="x-section">
-      <div className="x-wrap x-split">
-        <div className="x-photo">
-          <Image
-            src={photo("photo-1748027869634-fc2e545cfb0c")}
-            alt="Technician in a hard hat checking equipment at a commercial building entrance"
-            fill
-            sizes="(max-width: 900px) 100vw, 560px"
-          />
-        </div>
+      <div className="x-wrap x-split x-split--map">
+        <figure className="x-map x-map--us">
+          <FootprintMap />
+        </figure>
         <div>
           <h2 className="x-h2">Backed by Buildate</h2>
           <p className="x-body">
@@ -175,11 +233,11 @@ export function Industries() {
 export function Coverage() {
   return (
     <section id="coverage" className="x-section">
-      <div className="x-wrap x-split x-split--reverse">
+      <div className="x-wrap x-split x-split--map x-split--reverse">
         <div>
           <h2 className="x-h2">Where we work</h2>
           <p className="x-body">
-            Across Illinois, including Chicago, Naperville, Aurora, Rockford, Peoria and Springfield.
+            Across Illinois, from the Chicago area and the western suburbs to Rockford, Peoria and Springfield.
           </p>
           <p className="x-body">
             Managing several sites? One coordinator handles all of them, with the same process at every location.
@@ -187,15 +245,13 @@ export function Coverage() {
           <p className="x-body">
             We&apos;re adding more states. If you manage properties outside Illinois, ask us.
           </p>
+          <Link href="/request-service" className="x-link">
+            Request service
+          </Link>
         </div>
-        <div className="x-photo">
-          <Image
-            src={photo("photo-1705579605238-24a90c8799c5")}
-            alt="Technician on a commercial roof next to rows of HVAC units"
-            fill
-            sizes="(max-width: 900px) 100vw, 560px"
-          />
-        </div>
+        <figure className="x-map x-map--il">
+          <IllinoisMap />
+        </figure>
       </div>
     </section>
   );
