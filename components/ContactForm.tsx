@@ -36,17 +36,17 @@ export default function ContactForm() {
       }}
     >
       <label className="sr-only" htmlFor="cf-name">Your name (required)</label>
-      <input id="cf-name" required name="name" type="text" placeholder="Your Name" autoComplete="name" maxLength={100} />
+      <input id="cf-name" required name="name" type="text" placeholder="Your name" autoComplete="name" maxLength={100} />
       <label className="sr-only" htmlFor="cf-company">Company</label>
       <input id="cf-company" name="company" type="text" placeholder="Company" autoComplete="organization" maxLength={150} />
       <label className="sr-only" htmlFor="cf-email">Email address (required)</label>
-      <input id="cf-email" required name="email" type="email" placeholder="Email Address" autoComplete="email" maxLength={200} />
+      <input id="cf-email" required name="email" type="email" placeholder="Email address" autoComplete="email" maxLength={200} />
       <label className="sr-only" htmlFor="cf-phone">Phone number</label>
-      <input id="cf-phone" name="phone" type="tel" placeholder="Phone Number" autoComplete="tel" maxLength={40} />
+      <input id="cf-phone" name="phone" type="tel" placeholder="Phone number" autoComplete="tel" maxLength={40} />
       <label className="sr-only" htmlFor="cf-service">Service needed (required)</label>
       <select id="cf-service" required name="service" defaultValue="">
         <option value="" disabled>
-          Service Needed
+          Service needed
         </option>
         {SERVICES.map((s) => (
           <option key={s} value={s}>
@@ -55,7 +55,7 @@ export default function ContactForm() {
         ))}
       </select>
       <label className="sr-only" htmlFor="cf-message">Message (required)</label>
-      <textarea id="cf-message" required name="message" placeholder="Tell us about your project..." rows={8} maxLength={5000} />
+      <textarea id="cf-message" required name="message" placeholder="What do you need done, and where?" rows={8} maxLength={5000} />
       <div className="hp-field" aria-hidden="true">
         <label htmlFor="cf-website">Leave this field empty</label>
         <input id="cf-website" name="website" type="text" tabIndex={-1} autoComplete="off" />

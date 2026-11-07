@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RequestServiceForm from "@/components/RequestServiceForm";
 import type { Metadata } from "next";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Request Service | RBF Maintenance",
@@ -14,18 +15,16 @@ export default function RequestServicePage() {
     <>
       <Header />
       <main>
-        <div className="rs-top">
-          <div className="rs-top-inner">
-            <h1 className="rs-title">Request Service</h1>
-            <p className="rs-tagline">Prompt, Professional Service for Your Property.</p>
-            <p className="rs-desc">
-              Please complete the form below with as much detail as possible and attach photos
-              where available. A coordinator will review your request, assign the appropriate
-              technician, and contact you to confirm scheduling. Requests marked as emergencies
-              are given priority.
+        <section className="x-page-head">
+          <div className="x-wrap">
+            <h1>Request service</h1>
+            <p>
+              Tell us what needs fixing and where. Photos help. A coordinator will call you to confirm scope and
+              scheduling, and emergencies go first. For anything urgent, also call{" "}
+              <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>.
             </p>
           </div>
-        </div>
+        </section>
 
         <div className="rs-bottom">
           <div className="rs-card-wrap">

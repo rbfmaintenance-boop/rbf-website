@@ -50,13 +50,13 @@ export default function RequestServiceForm() {
         }
       }}
     >
-      <SectionLabel>Contact Information</SectionLabel>
+      <SectionLabel>Contact information</SectionLabel>
       <div className="rs-grid">
-        <Field label="Company Name" required>
-          <input required name="company-name" type="text" placeholder="Property Group" />
+        <Field label="Company name" required>
+          <input required name="company-name" type="text" placeholder="Your company" />
         </Field>
-        <Field label="Contact Name" required>
-          <input required name="contact-name" type="text" placeholder="First & Last Name" />
+        <Field label="Contact name" required>
+          <input required name="contact-name" type="text" placeholder="First and last name" />
         </Field>
       </div>
       <div className="rs-grid">
@@ -68,17 +68,17 @@ export default function RequestServiceForm() {
         </Field>
       </div>
 
-      <SectionLabel>Property Details</SectionLabel>
-      <Field label="Property Address" required>
+      <SectionLabel>Property details</SectionLabel>
+      <Field label="Property address" required>
         <input required name="property-address" type="text" placeholder="Street, City, State, ZIP" />
       </Field>
 
-      <SectionLabel>Service Request</SectionLabel>
+      <SectionLabel>The work</SectionLabel>
       <div className="rs-grid">
-        <Field label="Type of Service">
+        <Field label="Type of service">
           <select name="service" defaultValue="">
             <option value="" disabled>
-              — Select Trade —
+              Select a trade
             </option>
             {TRADES.map((t) => (
               <option key={t} value={t}>
@@ -87,10 +87,10 @@ export default function RequestServiceForm() {
             ))}
           </select>
         </Field>
-        <Field label="Urgency Level">
+        <Field label="Urgency">
           <select name="urgency" defaultValue="">
             <option value="" disabled>
-              — Select Urgency —
+              Select urgency
             </option>
             {URGENCY.map((u) => (
               <option key={u} value={u}>
@@ -101,8 +101,7 @@ export default function RequestServiceForm() {
         </Field>
       </div>
 
-      <SectionLabel>Description</SectionLabel>
-      <Field label="Describe the Work Needed" required>
+      <Field label="Describe the work needed" required>
         <textarea
           required
           name="description"
@@ -114,7 +113,7 @@ export default function RequestServiceForm() {
       <SectionLabel>Photos</SectionLabel>
       <div className="rs-field">
         <span className="rs-field-label">
-          Attach Photos
+          Attach photos
         </span>
         <label className="rs-drop">
           <input
