@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Logo from "./Logo";
+import Logo, { LogoMark } from "./Logo";
 import { CONTACT_EMAIL, LEGAL_NAME, PHONE_DISPLAY, PHONE_HREF } from "@/lib/company";
 
 const LINKS = [
@@ -14,11 +14,12 @@ const LINKS = [
 export default function Footer() {
   return (
     <footer className="x-footer">
+      <LogoMark className="x-footer-mark" />
       <div className="x-wrap">
         <div className="x-footer-top">
           <div className="x-footer-brand">
             <Link href="/" aria-label="RBF Maintenance home">
-              <Logo tone="dark" height={36} />
+              <Logo tone="dark" height={56} />
             </Link>
             <p>
               <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>

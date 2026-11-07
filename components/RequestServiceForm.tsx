@@ -1,15 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { submitForm } from "@/lib/submitForm";
 
 const TRADES = [
   "Electrical",
   "Plumbing",
   "HVAC",
-  "General Repair",
-  "Multiple Trades",
+  "Flooring",
+  "Painting",
+  "Drywall and build-outs",
+  "Fencing",
+  "General repairs",
+  "Multiple trades",
   "Other",
 ];
 
@@ -24,6 +28,13 @@ export default function RequestServiceForm() {
   const [error, setError] = useState("");
   const [files, setFiles] = useState<File[]>([]);
   const startedAt = useRef(Date.now());
+  const [trade, setTrade] = useState("");
+
+  // Pre-select the trade when arriving from a "Request ... " link on the home page
+  useEffect(() => {
+    const t = new URLSearchParams(window.location.search).get("trade");
+    if (t && TRADES.includes(t)) setTrade(t);
+  }, []);
 
   if (status === "sent") {
     return (
@@ -76,7 +87,7 @@ export default function RequestServiceForm() {
       <SectionLabel>The work</SectionLabel>
       <div className="rs-grid">
         <Field label="Type of service">
-          <select name="service" defaultValue="">
+          <select name="service" value={trade} onChange={(e) => setTrade(e.target.value)}>
             <option value="" disabled>
               Select a trade
             </option>

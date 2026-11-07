@@ -12,10 +12,11 @@ export default function Logo({
   height = 40,
 }: {
   /** "light" for light backgrounds, "dark" for dark backgrounds. */
-  tone?: "light" | "dark";
+  tone?: "light" | "dark" | "current";
   height?: number;
 }) {
   const dark = tone === "dark";
+  const cur = tone === "current";
   return (
     <svg
       viewBox="0 0 402.03 89.41"
@@ -25,9 +26,18 @@ export default function Logo({
       aria-label="RBF Maintenance"
       style={{ display: "block" }}
     >
-      <path fill={dark ? "#fff" : "var(--ink-950)"} fillRule="evenodd" transform={MARK_T} d={MARK_D} />
-      <path fill={dark ? "var(--silver-light)" : "var(--silver)"} transform={DIVIDER_T} d={DIVIDER_D} />
-      <path fill={dark ? "#fff" : "var(--ink-950)"} transform={WORD_T} d={WORD_D} />
+      <path fill={cur ? "currentColor" : dark ? "#fff" : "var(--ink-950)"} fillRule="evenodd" transform={MARK_T} d={MARK_D} />
+      <path fill={cur ? "currentColor" : dark ? "var(--silver-light)" : "var(--silver)"} opacity={cur ? 0.5 : 1} transform={DIVIDER_T} d={DIVIDER_D} />
+      <path fill={cur ? "currentColor" : dark ? "#fff" : "var(--ink-950)"} transform={WORD_T} d={WORD_D} />
+    </svg>
+  );
+}
+
+/** The RBF mark on its own, used as a large brand graphic. Inherits color. */
+export function LogoMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 167 90" className={className} aria-hidden="true" focusable="false">
+      <path fill="currentColor" fillRule="evenodd" transform={MARK_T} d={MARK_D} />
     </svg>
   );
 }

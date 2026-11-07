@@ -5,8 +5,8 @@ import { Hero, Trades, Process, SisterCompany, Industries, Coverage, Contact } f
 export default function Home() {
   return (
     <>
-      <Header />
-      <main>
+      <Header overlay />
+      <main id="main">
         <Hero />
         <Trades />
         <Process />

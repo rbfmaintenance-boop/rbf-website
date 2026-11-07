@@ -1,11 +1,22 @@
-import type { Metadata } from "next";
-import "@fontsource/public-sans/400.css";
-import "@fontsource/public-sans/600.css";
-import "@fontsource/public-sans/700.css";
-import "@fontsource/barlow-condensed/600.css";
+import type { Metadata, Viewport } from "next";
+import "@fontsource-variable/archivo/wdth.css";
 import "./globals.css";
 import "./site.css";
-import { SITE_URL } from "@/lib/company";
+import { CONTACT_EMAIL, SITE_URL } from "@/lib/company";
+
+export const viewport: Viewport = { themeColor: "#16233a" };
+
+const businessData = {
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  name: "RBF Maintenance",
+  url: SITE_URL,
+  telephone: "+1-536-666-6991",
+  email: CONTACT_EMAIL,
+  areaServed: { "@type": "State", name: "Illinois" },
+  description:
+    "Commercial repairs and maintenance across Illinois: electrical, plumbing, HVAC, flooring, painting, drywall, fencing and general repairs.",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -21,7 +32,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessData) }} />
+        {children}
+      </body>
     </html>
   );
 }

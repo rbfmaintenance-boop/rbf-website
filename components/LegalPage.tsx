@@ -13,7 +13,7 @@ export default function LegalPage({
   return (
     <>
       <Header />
-      <main>
+      <main id="main">
         <section>
           <div className="wrap legal">
             <h1>{title}</h1>

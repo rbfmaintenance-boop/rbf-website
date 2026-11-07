@@ -12,7 +12,7 @@ export default function CareersPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main">
         <section className="x-page-head">
           <div className="x-wrap">
             <h1>Careers at RBF Maintenance</h1>

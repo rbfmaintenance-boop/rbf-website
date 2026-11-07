@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
-import { FootprintMap, IllinoisMap } from "./Maps";
+import { FootprintMap } from "./Maps";
+import TradeBoard from "./TradeBoard";
+import ProcessTimeline from "./ProcessTimeline";
+import IllinoisCoverage from "./IllinoisCoverage";
 import { PHONE_DISPLAY, PHONE_HREF, CONTACT_EMAIL } from "@/lib/company";
 
 const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=2000&q=80`;
@@ -19,12 +22,12 @@ export function Hero() {
       />
       <div className="x-hero-shade" aria-hidden="true" />
       <div className="x-wrap x-hero-inner">
-        <h1>Repairs and maintenance for commercial properties across Illinois.</h1>
-        <p className="x-hero-lead">
+        <h1 className="x-in x-in-1">Repairs and maintenance for commercial properties across Illinois.</h1>
+        <p className="x-hero-lead x-in x-in-2">
           Electrical, plumbing, HVAC and interior work for property and facility managers. Send one request. We
           schedule it, do the work and send you photos when it&apos;s done.
         </p>
-        <div className="x-actions">
+        <div className="x-actions x-in x-in-3">
           <Link href="/request-service" className="x-btn x-btn--light">
             Request service
           </Link>
@@ -33,7 +36,7 @@ export function Hero() {
           </a>
         </div>
       </div>
-      <div className="x-creds-band">
+      <div className="x-creds-band x-in x-in-4">
         <dl className="x-wrap x-creds">
           <div>
             <dt>Since 2000</dt>
@@ -57,17 +60,6 @@ export function Hero() {
   );
 }
 
-const TRADES = [
-  ["Electrical", "Panels, circuits, lighting and troubleshooting"],
-  ["Plumbing", "Leaks, drains, fixtures and water heaters"],
-  ["HVAC", "Repairs, preventive maintenance and replacements"],
-  ["Flooring", "Tile, LVT, carpet tile and concrete"],
-  ["Painting", "Touch-ups to full suites, inside and out"],
-  ["Drywall and build-outs", "Patches to complete suite improvements"],
-  ["Fencing", "Repairs and new installation"],
-  ["General repairs", "Doors, hardware, fixtures and punch lists"],
-];
-
 export function Trades() {
   return (
     <section id="services" className="x-section">
@@ -82,14 +74,7 @@ export function Trades() {
             Request service
           </Link>
         </div>
-        <ul className="x-board" aria-label="Trades">
-          {TRADES.map(([trade, scope]) => (
-            <li key={trade} className="x-board-row">
-              <span className="x-board-trade">{trade}</span>
-              <span className="x-board-scope">{scope}</span>
-            </li>
-          ))}
-        </ul>
+        <TradeBoard />
       </div>
     </section>
   );
@@ -112,17 +97,7 @@ export function Process() {
         <div>
           <h2 className="x-h2">How a job runs</h2>
           <p className="x-intro">One coordinator stays your contact from the first call to the closeout.</p>
-          <ol className="x-timeline">
-            {STEPS.map(([title, text], i) => (
-              <li key={title}>
-                <span className="x-timeline-node" aria-hidden="true">
-                  {i + 1}
-                </span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </li>
-            ))}
-          </ol>
+          <ProcessTimeline steps={STEPS} />
         </div>
         <figure className="x-report">
           <div className="x-report-head">
@@ -233,25 +208,8 @@ export function Industries() {
 export function Coverage() {
   return (
     <section id="coverage" className="x-section">
-      <div className="x-wrap x-split x-split--map x-split--reverse">
-        <div>
-          <h2 className="x-h2">Where we work</h2>
-          <p className="x-body">
-            Across Illinois, from the Chicago area and the western suburbs to Rockford, Peoria and Springfield.
-          </p>
-          <p className="x-body">
-            Managing several sites? One coordinator handles all of them, with the same process at every location.
-          </p>
-          <p className="x-body">
-            We&apos;re adding more states. If you manage properties outside Illinois, ask us.
-          </p>
-          <Link href="/request-service" className="x-link">
-            Request service
-          </Link>
-        </div>
-        <figure className="x-map x-map--il">
-          <IllinoisMap />
-        </figure>
+      <div className="x-wrap">
+        <IllinoisCoverage />
       </div>
     </section>
   );

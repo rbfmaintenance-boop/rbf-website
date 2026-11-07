@@ -4,7 +4,17 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { submitForm } from "@/lib/submitForm";
 
-const SERVICES = ["Electrical", "Plumbing", "HVAC", "Repairs", "Renovation"];
+const SERVICES = [
+  "Electrical",
+  "Plumbing",
+  "HVAC",
+  "Flooring",
+  "Painting",
+  "Drywall and build-outs",
+  "Fencing",
+  "General repairs",
+  "Something else",
+];
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");

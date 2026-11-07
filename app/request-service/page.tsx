@@ -14,7 +14,7 @@ export default function RequestServicePage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main">
         <section className="x-page-head">
           <div className="x-wrap">
             <h1>Request service</h1>
