@@ -1,12 +1,6 @@
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Industries from "@/components/Industries";
-import ServiceArea from "@/components/ServiceArea";
-import WhyUs from "@/components/WhyUs";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { Hero, Trades, Process, SisterCompany, Industries, Coverage, Contact } from "@/components/HomeSections";
 
 export default function Home() {
   return (
@@ -14,11 +8,11 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Services />
+        <Trades />
+        <Process />
+        <SisterCompany />
         <Industries />
-        <ServiceArea />
-        <WhyUs />
+        <Coverage />
         <Contact />
       </main>
       <Footer />

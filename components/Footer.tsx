@@ -1,33 +1,44 @@
 import Link from "next/link";
 import Logo from "./Logo";
-import { LEGAL_NAME } from "@/lib/company";
+import { CONTACT_EMAIL, LEGAL_NAME, PHONE_DISPLAY, PHONE_HREF } from "@/lib/company";
+
+const LINKS = [
+  { label: "Services", href: "/#services" },
+  { label: "How it works", href: "/#how-it-works" },
+  { label: "Industries", href: "/#industries" },
+  { label: "Where we work", href: "/#coverage" },
+  { label: "Careers", href: "/careers" },
+  { label: "Request service", href: "/request-service" },
+];
 
 export default function Footer() {
   return (
-    <footer style={{ background: "var(--ink-950)", color: "#fff", padding: "40px 0" }}>
-      <div className="wrap" style={{ marginBottom: 28 }}>
-        <Link href="/" aria-label="RBF Maintenance home" style={{ display: "inline-block" }}>
-          <Logo tone="dark" height={36} />
-        </Link>
-      </div>
-      <div className="wrap footer-bottom">
-        <nav className="footer-links">
-          {["Home", "About", "Services", "Industries", "Service Areas", "Contact", "Careers", "Request Service"].map(
-            (item) => (
-              <Link
-                key={item}
-                href={item === "Careers" ? "/careers" : item === "Request Service" ? "/request-service" : `/#${item.toLowerCase().replace(/\s/g, "-")}`}
-              >
-                {item}
+    <footer className="x-footer">
+      <div className="x-wrap">
+        <div className="x-footer-top">
+          <div className="x-footer-brand">
+            <Link href="/" aria-label="RBF Maintenance home">
+              <Logo tone="dark" height={36} />
+            </Link>
+            <p>
+              <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>
+              <br />
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            </p>
+          </div>
+          <nav className="x-footer-nav" aria-label="Footer">
+            {LINKS.map((l) => (
+              <Link key={l.label} href={l.href}>
+                {l.label}
               </Link>
-            )
-          )}
-        </nav>
-        <div>
-          <p className="footer-copy">
-            © {new Date().getFullYear()} {LEGAL_NAME} · All rights reserved · Illinois
+            ))}
+          </nav>
+        </div>
+        <div className="x-footer-bottom">
+          <p>
+            © {new Date().getFullYear()} {LEGAL_NAME}. A sister company of Buildate.
           </p>
-          <nav className="footer-legal" aria-label="Legal">
+          <nav className="x-footer-legal" aria-label="Legal">
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms of Use</Link>
           </nav>

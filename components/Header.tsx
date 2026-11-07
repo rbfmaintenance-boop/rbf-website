@@ -3,107 +3,64 @@
 import { useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/company";
 
 const NAV = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },
   { label: "Services", href: "/#services" },
+  { label: "How it works", href: "/#how-it-works" },
   { label: "Industries", href: "/#industries" },
-  { label: "Service Areas", href: "/#service-areas" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Where we work", href: "/#coverage" },
   { label: "Careers", href: "/careers" },
-  { label: "Request Service", href: "/request-service" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
 
   return (
-    <header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 50,
-        background: "#fff",
-        borderBottom: "1px solid var(--line)",
-      }}
-    >
-      <div className="wrap header-bar">
-        <Link href="/" aria-label="RBF Maintenance home" className="header-logo" onClick={() => setOpen(false)}>
-          <Logo height={44} />
+    <header className="x-header">
+      <div className="x-wrap x-header-bar">
+        <Link href="/" aria-label="RBF Maintenance home" onClick={close} className="x-header-logo">
+          <Logo height={40} />
         </Link>
-
-        <button
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="mobile-toggle"
-        >
-          {open ? "✕" : "☰"}
-        </button>
-      </div>
-
-      <nav
-        className="desktop-nav"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 14,
-          borderTop: "1px solid var(--line)",
-          padding: "16px 0",
-        }}
-      >
-        {NAV.map((item, i) => (
-          <span key={item.label} style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <Link
-              href={item.href}
-              style={{
-                color: "var(--ink-950)",
-                fontFamily: "var(--font-display)",
-                fontSize: 13,
-                fontWeight: 700,
-                letterSpacing: "0.03em",
-                textTransform: "uppercase",
-                textDecoration: "none",
-              }}
-            >
-              {item.label}
-            </Link>
-            {i < NAV.length - 1 && <span style={{ color: "var(--steel-400)" }}>•</span>}
-          </span>
-        ))}
-      </nav>
-
-      {open && (
-        <div
-          className="mobile-menu"
-          style={{
-            background: "#fff",
-            borderTop: "1px solid var(--line)",
-            padding: "10px 20px 28px",
-            display: "flex",
-            flexDirection: "column",
-            gap: 4,
-          }}
-        >
+        <nav className="x-nav" aria-label="Main">
           {NAV.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              style={{
-                color: "var(--ink-950)",
-                padding: "12px 4px",
-                textDecoration: "none",
-                fontWeight: 600,
-                borderBottom: "1px solid var(--line)",
-              }}
-            >
+            <Link key={item.label} href={item.href}>
               {item.label}
             </Link>
           ))}
-        </div>
+        </nav>
+        <a href={PHONE_HREF} className="x-header-phone">
+          {PHONE_DISPLAY}
+        </a>
+        <Link href="/request-service" className="x-btn x-header-cta">
+          Request service
+        </Link>
+        <button
+          type="button"
+          className="x-menu-toggle"
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? "Close" : "Menu"}
+        </button>
+      </div>
+      {open && (
+        <nav id="mobile-nav" className="x-mobile-nav" aria-label="Main">
+          {NAV.map((item) => (
+            <Link key={item.label} href={item.href} onClick={close}>
+              {item.label}
+            </Link>
+          ))}
+          <a href={PHONE_HREF} onClick={close}>
+            Call {PHONE_DISPLAY}
+          </a>
+          <Link href="/request-service" className="x-btn" onClick={close}>
+            Request service
+          </Link>
+        </nav>
       )}
     </header>
   );
