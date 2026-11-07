@@ -52,18 +52,18 @@ export function FootprintMap() {
         <path key={s.id} d={s.d} className={s.id === "48" || s.id === "17" ? "x-us-on" : "x-us-off"} />
       ))}
       <g className="x-us-pin">
-        <circle cx={houston[0]} cy={houston[1]} r={8} />
-        <circle cx={chicago[0]} cy={chicago[1]} r={8} />
+        <circle cx={houston[0]} cy={houston[1]} r={11} />
+        <circle cx={chicago[0]} cy={chicago[1]} r={11} />
       </g>
-      <text x={houston[0] + 18} y={houston[1] - 4} className="x-us-label">
+      <text x={houston[0] + 22} y={houston[1] + 2} className="x-us-label">
         <tspan className="x-us-label-strong">Buildate</tspan>
-        <tspan x={houston[0] + 18} dy={22}>
+        <tspan x={houston[0] + 22} dy={32}>
           Texas, since 2000
         </tspan>
       </text>
-      <text x={chicago[0] + 18} y={chicago[1] - 4} className="x-us-label">
+      <text x={chicago[0] + 22} y={chicago[1] + 2} className="x-us-label">
         <tspan className="x-us-label-strong">RBF Maintenance</tspan>
-        <tspan x={chicago[0] + 18} dy={22}>
+        <tspan x={chicago[0] + 22} dy={32}>
           Illinois
         </tspan>
       </text>

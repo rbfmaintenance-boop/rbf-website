@@ -567,7 +567,8 @@ section[id] {
 
 .x-hero-bg {
   object-fit: cover;
-  object-position: 70% 40%;
+  object-position: 50% 40%;
+  transform: scaleX(-1);
 }
 
 .x-hero-shade {
@@ -971,16 +972,16 @@ section[id] {
 
 .x-us-label {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: 26px;
   fill: var(--steel-600);
   paint-order: stroke;
   stroke: #eef1f4;
-  stroke-width: 5px;
+  stroke-width: 6px;
   stroke-linejoin: round;
 }
 
 .x-us-label-strong {
-  font-size: 21px;
+  font-size: 31px;
   font-weight: 700;
   fill: var(--ink-950);
 }
