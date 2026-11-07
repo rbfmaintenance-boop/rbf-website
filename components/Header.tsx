@@ -10,7 +10,6 @@ const NAV = [
   { label: "How it works", href: "/#how-it-works" },
   { label: "Where we work", href: "/#coverage" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/#contact" },
 ];
 
 /**

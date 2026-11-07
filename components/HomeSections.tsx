@@ -7,7 +7,7 @@ import ProcessTimeline from "./ProcessTimeline";
 import IllinoisCoverage from "./IllinoisCoverage";
 import { PHONE_DISPLAY, PHONE_HREF, CONTACT_EMAIL } from "@/lib/company";
 
-const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=2000&q=80`;
+const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=2048&q=80`;
 
 export function Hero() {
   return (
@@ -17,6 +17,7 @@ export function Hero() {
         alt=""
         fill
         priority
+        quality={68}
         sizes="100vw"
         className="x-hero-bg"
       />

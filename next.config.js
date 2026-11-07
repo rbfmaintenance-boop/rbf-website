@@ -14,6 +14,8 @@ const nextConfig = {
   poweredByHeader: false,
   images: {
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+    deviceSizes: [640, 828, 1200, 1600, 2048],
+    formats: ["image/avif", "image/webp"],
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

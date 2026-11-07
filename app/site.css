@@ -879,12 +879,13 @@ h3,
 
 .x-nav {
   display: flex;
-  gap: 26px;
+  gap: 24px;
   margin-left: auto;
 }
 
 .x-nav a {
   position: relative;
+  white-space: nowrap;
   color: inherit;
   font-size: 15px;
   font-weight: 600;
@@ -1084,6 +1085,7 @@ h3,
 .x-board-h {
   margin: 0;
   font: inherit;
+  color: inherit;
 }
 
 .x-board-btn {
