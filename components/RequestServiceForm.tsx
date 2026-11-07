@@ -163,7 +163,7 @@ export default function RequestServiceForm() {
         without your written OK. See our <Link href="/privacy">Privacy Policy</Link>.
       </p>
       <button type="submit" className="rs-submit" disabled={status === "sending"}>
-        {status === "sending" ? "Sending..." : "Submit Work Order"}
+        {status === "sending" ? "Sending..." : "Submit request"}
       </button>
     </form>
   );

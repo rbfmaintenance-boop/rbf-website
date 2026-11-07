@@ -72,7 +72,7 @@ export default function CareersForm() {
         <Link href="/privacy">Privacy Policy</Link>.
       </p>
       <button type="submit" className="btn" style={{ justifyContent: "center" }} disabled={status === "sending"}>
-        {status === "sending" ? "Sending..." : "Submit Application"}
+        {status === "sending" ? "Sending..." : "Send application"}
       </button>
     </form>
   );

@@ -79,7 +79,7 @@ export default function ContactForm() {
         We use your details only to answer your message. See our <Link href="/privacy">Privacy Policy</Link>.
       </p>
       <button type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Sending..." : "Send Message"}
+        {status === "sending" ? "Sending..." : "Send message"}
       </button>
     </form>
   );
