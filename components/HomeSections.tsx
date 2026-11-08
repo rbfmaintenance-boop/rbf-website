@@ -29,9 +29,9 @@ export function Hero() {
     <section className="x-hero">
       <HeroSlideshow
         slides={[
-          { src: photo(PHOTOS.lift), position: "75% 40%" },
-          { src: photo(PHOTOS.rooftop), position: "72% 50%" },
-          { src: photo(PHOTOS.entrance), position: "68% 40%" },
+          { src: photo(PHOTOS.lift), position: "75% 12%" },
+          { src: photo(PHOTOS.rooftop), position: "72% 28%" },
+          { src: photo(PHOTOS.entrance), position: "68% 20%" },
         ]}
       />
       <div className="x-hero-shade" aria-hidden="true" />
