@@ -52,9 +52,6 @@ export function Hero() {
           </a>
         </div>
       </div>
-      <a href="#about" className="x-scroll-cue" aria-label="Scroll to About RBF Maintenance">
-        <span />
-      </a>
     </section>
   );
 }
