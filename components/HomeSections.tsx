@@ -9,17 +9,19 @@ import Metrics from "./Metrics";
 import IndustriesAccordion from "./IndustriesAccordion";
 import { PHONE_DISPLAY, PHONE_HREF, CONTACT_EMAIL } from "@/lib/company";
 
-export const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=2048&q=80`;
+export const photo = (src: string) =>
+  src.startsWith("/") ? src : `https://images.unsplash.com/${src}?auto=format&fit=crop&w=2048&q=80`;
 
 const PHOTOS = {
-  lift: "photo-1785682118449-21da8825754d",
-  rooftop: "photo-1705579605238-24a90c8799c5",
-  entrance: "photo-1748027869634-fc2e545cfb0c",
-  electrical: "photo-1660330589827-da8ab7dd3c02",
-  plumbing: "photo-1761758674188-2b8e4c89c5e2",
+  lift: "/images/team/hero-lift.jpg",
+  rooftop: "/images/team/hero-rooftop.jpg",
+  entrance: "/images/team/hero-entrance.jpg",
+  industries: "/images/team/industries-entrance.jpg",
+  electrical: "/images/team/electrical.jpg",
+  plumbing: "/images/team/plumbing.jpg",
+  drywall: "/images/team/drywall.jpg",
   flooring: "photo-1624574470112-46944be68409",
   painting: "photo-1693985120993-e9b203ce7631",
-  buildout: "photo-1768321913920-d3ac011e0683",
 };
 
 export function Hero() {
@@ -27,9 +29,9 @@ export function Hero() {
     <section className="x-hero">
       <HeroSlideshow
         slides={[
-          { src: photo(PHOTOS.lift), position: "60% 40%" },
-          { src: photo(PHOTOS.rooftop), position: "50% 50%" },
-          { src: photo(PHOTOS.entrance), position: "40% 40%" },
+          { src: photo(PHOTOS.lift), position: "75% 40%" },
+          { src: photo(PHOTOS.rooftop), position: "72% 50%" },
+          { src: photo(PHOTOS.entrance), position: "68% 40%" },
         ]}
       />
       <div className="x-hero-shade" aria-hidden="true" />
@@ -92,36 +94,42 @@ const SERVICES = [
     name: "Electrical",
     trade: "Electrical",
     img: PHOTOS.electrical,
+    pos: "55% 35%",
     text: "Panels, circuits, interior and exterior lighting, and troubleshooting.",
   },
   {
     name: "Plumbing",
     trade: "Plumbing",
     img: PHOTOS.plumbing,
+    pos: "55% 50%",
     text: "Leaks, drains, valves, fixtures, water heaters and restroom repairs.",
   },
   {
     name: "HVAC",
     trade: "HVAC",
     img: PHOTOS.rooftop,
+    pos: "72% 50%",
     text: "Repairs, preventive maintenance and rooftop or split-system replacement.",
   },
   {
     name: "Flooring",
     trade: "Flooring",
     img: PHOTOS.flooring,
+    pos: "50% 50%",
     text: "Tile, LVT, carpet tile and concrete, from repairs to full suites.",
   },
   {
     name: "Painting",
     trade: "Painting",
     img: PHOTOS.painting,
+    pos: "50% 50%",
     text: "Suites, corridors, common areas and exteriors, plus touch-ups between tenants.",
   },
   {
     name: "Drywall and build-outs",
     trade: "Drywall and build-outs",
-    img: PHOTOS.buildout,
+    img: PHOTOS.drywall,
+    pos: "45% 40%",
     text: "Patches and water damage repair through framing, ceilings and suite finish-outs.",
   },
 ];
@@ -137,7 +145,13 @@ export function Services() {
         <div className="x-cards" data-reveal-stagger>
           {SERVICES.map((s) => (
             <article key={s.name} className="x-card">
-              <Image src={photo(s.img)} alt="" fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" />
+              <Image
+                src={photo(s.img)}
+                alt=""
+                fill
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px"
+                style={{ objectPosition: s.pos }}
+              />
               <div className="x-card-body">
                 <h3>{s.name}</h3>
                 <div className="x-card-more">
@@ -173,10 +187,11 @@ export function Industries() {
           </p>
           <div className="x-photo x-industries-photo">
             <Image
-              src={photo(PHOTOS.entrance)}
-              alt="Technician in a hard hat checking equipment at a commercial building entrance"
+              src={photo(PHOTOS.industries)}
+              alt="RBF technician adjusting a door closer at an office building entrance"
               fill
               sizes="(max-width: 900px) 100vw, 460px"
+              style={{ objectPosition: "86% 40%" }}
             />
           </div>
         </div>
@@ -238,7 +253,7 @@ export function Process() {
             </p>
           </div>
           <div className="x-report-photo">
-            <Image src={photo(PHOTOS.rooftop)} alt="" fill sizes="(max-width: 900px) 90vw, 420px" />
+            <Image src={photo(PHOTOS.rooftop)} alt="" fill sizes="(max-width: 900px) 90vw, 420px" style={{ objectPosition: "72% 45%" }} />
             <span>6 photos attached</span>
           </div>
           <ul className="x-report-checks">
