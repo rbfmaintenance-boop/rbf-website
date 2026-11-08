@@ -1452,8 +1452,9 @@ section[id] {
 
 .x-pf-card-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 10px 12px;
   padding-bottom: 16px;
   border-bottom: 2px solid var(--ink-950);
 }
