@@ -40,6 +40,7 @@ const SITE_DATA: Omit<Site, "x" | "y">[] = [
   { name: "Rockford", type: "Retail center", sys: 0, task: "Serviced a rooftop unit", side: "end", dy: 0 },
   { name: "Peoria", type: "Office building", sys: 1, task: "Patched and painted suite walls", side: "end", dy: 0 },
   { name: "Springfield", type: "Retail store", sys: 4, task: "Fixed a storefront door closer", side: "start", dy: 0 },
+  { name: "Champaign", type: "Distribution warehouse", sys: 5, task: "Replaced parking lot lights", side: "end", dy: 0 },
 ];
 
 const SITES: Site[] = SITE_DATA.map((s) => {

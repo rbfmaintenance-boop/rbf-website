@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Page not found | RBF Maintenance",
+  alternates: { canonical: null },
+  robots: { index: false },
+};
 
 export default function NotFound() {
   return (

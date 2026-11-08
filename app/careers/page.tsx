@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import CareersForm from "@/components/CareersForm";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/careers" },
   title: "Careers | RBF Maintenance",
   description: "Work with RBF Maintenance on commercial properties across Illinois.",
 };

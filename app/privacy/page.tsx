@@ -3,6 +3,7 @@ import LegalPage from "@/components/LegalPage";
 import { CONTACT_EMAIL, LEGAL_NAME, POLICY_EFFECTIVE } from "@/lib/company";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Privacy Policy | RBF Maintenance",
   description: "What RBF Maintenance collects through rbfmaintenance.com, why, and what you can do about it.",
 };

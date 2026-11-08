@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/company";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/request-service" },
   title: "Request Service | RBF Maintenance",
   description:
     "Submit a maintenance request to RBF Maintenance for electrical, plumbing, HVAC, flooring, or interior repairs at your commercial property in Illinois.",

@@ -20,6 +20,7 @@ const businessData = {
 };
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/" },
   metadataBase: new URL(SITE_URL),
   title: "RBF Maintenance | Commercial property maintenance in Illinois",
   description:

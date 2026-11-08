@@ -275,7 +275,7 @@ export function Coverage() {
           <h2 className="x-title">Every site, every system</h2>
           <p className="x-slogan">One call to RBF</p>
           <p className="x-intro x-pf-intro">
-            Serving the Chicago area, Rockford, Peoria and Springfield, with more states coming. Pick a city and a part
+            Serving the Chicago area, Rockford, Peoria, Springfield and Champaign, with more states coming. Pick a city and a part
             of the building to see who handles the work.
           </p>
         </div>

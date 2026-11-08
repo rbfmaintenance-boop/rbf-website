@@ -4,6 +4,7 @@ import LegalPage from "@/components/LegalPage";
 import { CONTACT_EMAIL, LEGAL_NAME, POLICY_EFFECTIVE } from "@/lib/company";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/terms" },
   title: "Terms of Use | RBF Maintenance",
   description: "The terms for using rbfmaintenance.com.",
 };
