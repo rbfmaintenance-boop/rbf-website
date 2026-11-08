@@ -17,6 +17,7 @@
   --line-strong: #c3cad2;
   --brass: #b8893b;
   --brass-light: #d4a556;
+  --brass-text: #85601e;
   --board: #16233a;
   --board-ink: #e9edf2;
   --font-display: "Montserrat Variable", "Montserrat", system-ui, sans-serif;
@@ -117,7 +118,7 @@ section[id] {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--brass);
+  color: var(--brass-text);
 }
 
 .x-dark .x-slogan {
@@ -551,8 +552,8 @@ section[id] {
 .x-hero-shade {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(16, 26, 46, 0.62) 0%, rgba(16, 26, 46, 0.82) 70%),
-    linear-gradient(180deg, rgba(16, 26, 46, 0.2), rgba(16, 26, 46, 0.6));
+  background: radial-gradient(ellipse at center, rgba(16, 26, 46, 0.5) 0%, rgba(16, 26, 46, 0.68) 75%),
+    linear-gradient(180deg, rgba(16, 26, 46, 0.25), rgba(16, 26, 46, 0.55));
 }
 
 .x-hero-inner {
@@ -937,7 +938,7 @@ section[id] {
   font-family: var(--font-display);
   font-size: 15px;
   font-weight: 700;
-  color: var(--brass);
+  color: var(--brass-text);
   letter-spacing: 0.06em;
 }
 
@@ -1500,7 +1501,7 @@ section[id] {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brass);
+  color: var(--brass-text);
 }
 
 .x-contact-list dd {
