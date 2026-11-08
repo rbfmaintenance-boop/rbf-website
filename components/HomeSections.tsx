@@ -2,80 +2,190 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
 import { FootprintMap } from "./Maps";
-import TradeBoard from "./TradeBoard";
 import ProcessTimeline from "./ProcessTimeline";
 import IllinoisCoverage from "./IllinoisCoverage";
+import HeroSlideshow from "./HeroSlideshow";
+import Metrics from "./Metrics";
+import IndustriesAccordion from "./IndustriesAccordion";
 import { PHONE_DISPLAY, PHONE_HREF, CONTACT_EMAIL } from "@/lib/company";
 
-const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=2048&q=80`;
+export const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=2048&q=80`;
+
+const PHOTOS = {
+  lift: "photo-1785682118449-21da8825754d",
+  rooftop: "photo-1705579605238-24a90c8799c5",
+  entrance: "photo-1748027869634-fc2e545cfb0c",
+  electrical: "photo-1660330589827-da8ab7dd3c02",
+  plumbing: "photo-1761758674188-2b8e4c89c5e2",
+  flooring: "photo-1624574470112-46944be68409",
+  painting: "photo-1693985120993-e9b203ce7631",
+  buildout: "photo-1768321913920-d3ac011e0683",
+};
 
 export function Hero() {
   return (
     <section className="x-hero">
-      <Image
-        src={photo("photo-1785682118449-21da8825754d")}
-        alt=""
-        fill
-        priority
-        quality={68}
-        sizes="100vw"
-        className="x-hero-bg"
+      <HeroSlideshow
+        slides={[
+          { src: photo(PHOTOS.lift), position: "60% 40%" },
+          { src: photo(PHOTOS.rooftop), position: "50% 50%" },
+          { src: photo(PHOTOS.entrance), position: "40% 40%" },
+        ]}
       />
       <div className="x-hero-shade" aria-hidden="true" />
       <div className="x-wrap x-hero-inner">
-        <h1 className="x-in x-in-1">Repairs and maintenance for commercial properties across Illinois.</h1>
-        <p className="x-hero-lead x-in x-in-2">
-          Electrical, plumbing, HVAC and interior work for property and facility managers. Send one request. We
-          schedule it, do the work and send you photos when it&apos;s done.
+        <p className="x-kicker x-in x-in-1">Backed by Buildate since 2000</p>
+        <h1 className="x-in x-in-2">
+          <span>Commercial maintenance and repairs</span>
+          <span className="x-accent">across Illinois</span>
+        </h1>
+        <p className="x-hero-lead x-in x-in-3">
+          Electrical, plumbing, HVAC and interior work for property and facility managers. One request, one team,
+          photos at closeout.
         </p>
-        <div className="x-actions x-in x-in-3">
-          <Link href="/request-service" className="x-btn x-btn--light">
-            Request service
+        <div className="x-actions x-actions--center x-in x-in-4">
+          <Link href="/request-service" className="x-btn x-btn--brass">
+            Submit a work order
           </Link>
           <a href={PHONE_HREF} className="x-btn x-btn--outline-light">
             Call {PHONE_DISPLAY}
           </a>
         </div>
       </div>
-      <div className="x-creds-band x-in x-in-4">
-        <dl className="x-wrap x-creds">
-          <div>
-            <dt>Since 2000</dt>
-            <dd>Buildate&apos;s track record, now in Illinois</dd>
-          </div>
-          <div>
-            <dt>8 trades</dt>
-            <dd>One request covers them all</dd>
-          </div>
-          <div>
-            <dt>Statewide</dt>
-            <dd>Chicago area to Springfield</dd>
-          </div>
-          <div>
-            <dt>Emergency service</dt>
-            <dd>Urgent requests go first</dd>
-          </div>
-        </dl>
+      <a href="#about" className="x-scroll-cue" aria-label="Scroll to About RBF Maintenance">
+        <span />
+      </a>
+    </section>
+  );
+}
+
+export function About() {
+  return (
+    <section id="about" className="x-section">
+      <div className="x-wrap x-center" data-reveal>
+        <h2 className="x-title">About RBF Maintenance</h2>
+        <p className="x-slogan">One call. Every trade.</p>
+        <div className="x-about-text">
+          <p>
+            RBF Maintenance is the Illinois sister company of Buildate, a commercial contractor that has served property
+            and facility managers in Texas since 2000.
+          </p>
+          <p>
+            We bring the same coordinators, the same process and the same closeout standards to Illinois. One team
+            schedules the work, does it and reports back, so you never chase separate vendors for one problem.
+          </p>
+        </div>
+      </div>
+      <div className="x-wrap">
+        <Metrics
+          items={[
+            { value: 26, suffix: "+", label: "Years of experience through Buildate" },
+            { value: 8, label: "Trades under one request" },
+            { value: 1, label: "Point of contact for every job" },
+            { value: 100, suffix: "%", label: "Directly managed work" },
+          ]}
+        />
       </div>
     </section>
   );
 }
 
-export function Trades() {
+const SERVICES = [
+  {
+    name: "Electrical",
+    trade: "Electrical",
+    img: PHOTOS.electrical,
+    text: "Panels, circuits, interior and exterior lighting, and troubleshooting.",
+  },
+  {
+    name: "Plumbing",
+    trade: "Plumbing",
+    img: PHOTOS.plumbing,
+    text: "Leaks, drains, valves, fixtures, water heaters and restroom repairs.",
+  },
+  {
+    name: "HVAC",
+    trade: "HVAC",
+    img: PHOTOS.rooftop,
+    text: "Repairs, preventive maintenance and rooftop or split-system replacement.",
+  },
+  {
+    name: "Flooring",
+    trade: "Flooring",
+    img: PHOTOS.flooring,
+    text: "Tile, LVT, carpet tile and concrete, from repairs to full suites.",
+  },
+  {
+    name: "Painting",
+    trade: "Painting",
+    img: PHOTOS.painting,
+    text: "Suites, corridors, common areas and exteriors, plus touch-ups between tenants.",
+  },
+  {
+    name: "Drywall and build-outs",
+    trade: "Drywall and build-outs",
+    img: PHOTOS.buildout,
+    text: "Patches and water damage repair through framing, ceilings and suite finish-outs.",
+  },
+];
+
+export function Services() {
   return (
-    <section id="services" className="x-section">
-      <div className="x-wrap x-trades">
-        <div className="x-trades-intro">
-          <h2 className="x-h2">Trades we cover</h2>
-          <p className="x-intro">
-            One request can cover any mix of these, so you don&apos;t have to line up separate vendors for one
-            problem.
-          </p>
-          <Link href="/request-service" className="x-link">
-            Request service
-          </Link>
+    <section id="services" className="x-section x-dark">
+      <div className="x-wrap">
+        <div className="x-center" data-reveal>
+          <h2 className="x-title">Our services</h2>
+          <p className="x-slogan">Every trade your property needs</p>
         </div>
-        <TradeBoard />
+        <div className="x-cards" data-reveal-stagger>
+          {SERVICES.map((s) => (
+            <article key={s.name} className="x-card">
+              <Image src={photo(s.img)} alt="" fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" />
+              <div className="x-card-body">
+                <h3>{s.name}</h3>
+                <div className="x-card-more">
+                  <div>
+                    <p>{s.text}</p>
+                    <Link href={`/request-service?trade=${encodeURIComponent(s.trade)}`}>
+                      Request {s.name === "HVAC" ? "HVAC" : s.name.toLowerCase()} service
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="x-cards-note" data-reveal>
+          Also covered: fencing, doors and hardware, ceiling tiles, punch lists and tenant turn work.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+export function Industries() {
+  return (
+    <section id="industries" className="x-section">
+      <div className="x-wrap x-industries">
+        <div className="x-industries-intro" data-reveal>
+          <h2 className="x-title">Industries we serve</h2>
+          <p className="x-slogan x-slogan--left">Work planned around your operation</p>
+          <p className="x-body">
+            Property and facility managers count on us to get work done without disrupting tenants, customers or
+            operations.
+          </p>
+          <div className="x-photo x-industries-photo">
+            <Image
+              src={photo(PHOTOS.entrance)}
+              alt="Technician in a hard hat checking equipment at a commercial building entrance"
+              fill
+              sizes="(max-width: 900px) 100vw, 460px"
+            />
+          </div>
+        </div>
+        <div data-reveal>
+          <IndustriesAccordion />
+        </div>
       </div>
     </section>
   );
@@ -95,12 +205,12 @@ export function Process() {
   return (
     <section id="how-it-works" className="x-section x-dark">
       <div className="x-wrap x-process">
-        <div>
-          <h2 className="x-h2">How a job runs</h2>
-          <p className="x-intro">One coordinator stays your contact from the first call to the closeout.</p>
+        <div data-reveal>
+          <h2 className="x-title x-title--left">How a job runs</h2>
+          <p className="x-slogan x-slogan--left">One coordinator from first call to closeout</p>
           <ProcessTimeline steps={STEPS} />
         </div>
-        <figure className="x-report">
+        <figure className="x-report" data-reveal>
           <div className="x-report-head">
             <span className="x-report-title">Closeout report</span>
             <span className="x-report-tag">Sample</span>
@@ -131,12 +241,7 @@ export function Process() {
             </p>
           </div>
           <div className="x-report-photo">
-            <Image
-              src={photo("photo-1705579605238-24a90c8799c5")}
-              alt=""
-              fill
-              sizes="(max-width: 900px) 90vw, 420px"
-            />
+            <Image src={photo(PHOTOS.rooftop)} alt="" fill sizes="(max-width: 900px) 90vw, 420px" />
             <span>6 photos attached</span>
           </div>
           <ul className="x-report-checks">
@@ -153,19 +258,18 @@ export function Process() {
 
 export function SisterCompany() {
   return (
-    <section className="x-section">
+    <section className="x-section x-section--mist">
       <div className="x-wrap x-split x-split--map">
-        <figure className="x-map x-map--us">
+        <figure className="x-map x-map--us" data-reveal>
           <FootprintMap />
         </figure>
-        <div>
-          <h2 className="x-h2">Backed by Buildate</h2>
+        <div data-reveal>
+          <h2 className="x-title x-title--left">Backed by Buildate</h2>
+          <p className="x-slogan x-slogan--left">Texas since 2000, now in Illinois</p>
           <p className="x-body">
-            RBF Maintenance is a sister company of Buildate, a commercial contractor that has served property and
-            facility managers in Texas since 2000.
-          </p>
-          <p className="x-body">
-            RBF brings the same trades, the same process and the same closeout standards to properties in Illinois.
+            Buildate has handled commercial maintenance and repairs for property and facility managers across Texas
+            since 2000. RBF Maintenance brings the same trades, the same process and the same closeout standards to
+            properties in Illinois.
           </p>
           <a className="x-link" href="https://buildategroup.com" target="_blank" rel="noopener noreferrer">
             Visit buildategroup.com
@@ -176,41 +280,32 @@ export function SisterCompany() {
   );
 }
 
-const SECTORS = [
-  ["Retail and shopping centers", "Work scheduled before opening or after close, so stores stay open."],
-  ["Office buildings", "Repairs and suite work planned around tenant schedules."],
-  ["Industrial and warehouse", "Electrical, plumbing and HVAC support for facilities that keep running."],
-  ["Multifamily", "Unit turns, common areas and building systems."],
-  ["Healthcare", "Contained, clean work in occupied clinical spaces."],
-  ["Banks and financial offices", "Branch repairs and improvements with minimal disruption."],
-];
-
-export function Industries() {
+export function Coverage() {
   return (
-    <section id="industries" className="x-section x-section--mist">
-      <div className="x-wrap">
-        <h2 className="x-h2">Who we work for</h2>
-        <p className="x-intro">
-          Property and facility managers who need work done without disrupting tenants, customers or operations.
-        </p>
-        <dl className="x-sectors">
-          {SECTORS.map(([name, text]) => (
-            <div key={name} className="x-sector">
-              <dt>{name}</dt>
-              <dd>{text}</dd>
-            </div>
-          ))}
-        </dl>
+    <section id="coverage" className="x-section">
+      <div className="x-wrap" data-reveal>
+        <IllinoisCoverage />
       </div>
     </section>
   );
 }
 
-export function Coverage() {
+export function CtaBand() {
+  const bg = `/_next/image?url=${encodeURIComponent(photo(PHOTOS.lift))}&w=1600&q=70`;
   return (
-    <section id="coverage" className="x-section">
-      <div className="x-wrap">
-        <IllinoisCoverage />
+    <section className="x-band" style={{ ["--band-bg" as string]: `url("${bg}")` }}>
+      <div className="x-band-shade" aria-hidden="true" />
+      <div className="x-wrap x-center x-band-inner" data-reveal>
+        <h2 className="x-title">Have a work order ready?</h2>
+        <p className="x-band-text">Send it over with a few photos and a coordinator will call you to schedule it.</p>
+        <div className="x-actions x-actions--center">
+          <Link href="/request-service" className="x-btn x-btn--brass">
+            Submit a work order
+          </Link>
+          <a href={PHONE_HREF} className="x-btn x-btn--outline-light">
+            Call {PHONE_DISPLAY}
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -218,35 +313,37 @@ export function Coverage() {
 
 export function Contact() {
   return (
-    <section id="contact" className="x-section x-section--mist x-contact">
-      <div className="x-wrap x-contact-grid">
-        <div>
-          <h2 className="x-h2">Talk to us</h2>
-          <p className="x-intro">
-            Call for anything urgent. For everything else, send a message and a coordinator will get back to you.
-          </p>
-          <a className="x-contact-phone" href={PHONE_HREF}>
-            {PHONE_DISPLAY}
-          </a>
-          <dl className="x-contact-list">
-            <div>
-              <dt>Email</dt>
-              <dd>
-                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-              </dd>
-            </div>
-            <div>
-              <dt>Hours</dt>
-              <dd>Monday to Friday. Emergency service available.</dd>
-            </div>
-            <div>
-              <dt>Service area</dt>
-              <dd>Illinois</dd>
-            </div>
-          </dl>
+    <section id="contact" className="x-section x-contact">
+      <div className="x-wrap">
+        <div className="x-center" data-reveal>
+          <h2 className="x-title">Contact us</h2>
+          <p className="x-slogan">Call for anything urgent</p>
         </div>
-        <div className="x-form-card">
-          <ContactForm />
+        <div className="x-contact-grid" data-reveal>
+          <div className="x-contact-info">
+            <a className="x-contact-phone" href={PHONE_HREF}>
+              {PHONE_DISPLAY}
+            </a>
+            <dl className="x-contact-list">
+              <div>
+                <dt>Email</dt>
+                <dd>
+                  <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+                </dd>
+              </div>
+              <div>
+                <dt>Hours</dt>
+                <dd>Monday to Friday. Emergency service available.</dd>
+              </div>
+              <div>
+                <dt>Service area</dt>
+                <dd>Illinois, with more states coming</dd>
+              </div>
+            </dl>
+          </div>
+          <div className="x-form-card">
+            <ContactForm />
+          </div>
         </div>
       </div>
     </section>

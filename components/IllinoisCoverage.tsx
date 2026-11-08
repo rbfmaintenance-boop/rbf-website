@@ -21,7 +21,8 @@ export default function IllinoisCoverage() {
   return (
     <div className="x-split x-split--map x-split--reverse">
       <div>
-        <h2 className="x-h2">Where we work</h2>
+        <h2 className="x-title x-title--left">Service area</h2>
+        <p className="x-slogan x-slogan--left">Illinois today, more states coming</p>
         <p className="x-body">
           Across Illinois, from the Chicago area and the western suburbs to Rockford, Peoria and Springfield.
         </p>

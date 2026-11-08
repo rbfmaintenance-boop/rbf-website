@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/archivo/wdth.css";
+import "@fontsource-variable/montserrat/wght.css";
+import "@fontsource-variable/inter/wght.css";
 import "./globals.css";
 import "./site.css";
 import { CONTACT_EMAIL, SITE_URL } from "@/lib/company";
@@ -31,7 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessData) }} />
         {children}
