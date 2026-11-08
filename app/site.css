@@ -534,6 +534,7 @@ section[id] {
 
 .x-slide img {
   transform: scale(1.08);
+  transform-origin: 50% 0%;
 }
 
 .x-slide.is-active img {
