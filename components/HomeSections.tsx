@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
 import ProcessTimeline from "./ProcessTimeline";
-import IllinoisCoverage from "./IllinoisCoverage";
+import PortfolioMap from "./PortfolioMap";
 import HeroSlideshow from "./HeroSlideshow";
 import Metrics from "./Metrics";
 import IndustriesAccordion from "./IndustriesAccordion";
@@ -270,8 +270,16 @@ export function Process() {
 export function Coverage() {
   return (
     <section id="coverage" className="x-section">
-      <div className="x-wrap" data-reveal>
-        <IllinoisCoverage />
+      <div className="x-wrap">
+        <div className="x-center" data-reveal>
+          <h2 className="x-title">Every site, every system</h2>
+          <p className="x-slogan">One call to RBF</p>
+          <p className="x-intro x-pf-intro">
+            Serving the Chicago area, Rockford, Peoria and Springfield, with more states coming. Pick a city and a part
+            of the building to see who handles the work.
+          </p>
+        </div>
+        <PortfolioMap />
       </div>
     </section>
   );
