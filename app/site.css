@@ -1404,6 +1404,7 @@ section[id] {
   font-size: 13px;
   font-weight: 600;
   color: #fff;
+  text-shadow: 0 0 2px var(--ink-950), 0 0 2px var(--ink-950), 0 0 4px var(--ink-950);
   pointer-events: none;
 }
 
@@ -1421,6 +1422,7 @@ section[id] {
 
 .x-pf-pin-label--dark {
   color: var(--ink-950);
+  text-shadow: 0 0 2px var(--paper-100), 0 0 4px var(--paper-100);
 }
 
 .x-pf-pin.is-active .x-pf-pin-label--dark {
@@ -1461,6 +1463,8 @@ section[id] {
 }
 
 .x-pf-tag {
+  flex: none;
+  white-space: nowrap;
   padding: 3px 10px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
