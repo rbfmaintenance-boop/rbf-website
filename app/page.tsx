@@ -7,7 +7,6 @@ import {
   Services,
   Industries,
   Process,
-  SisterCompany,
   Coverage,
   CtaBand,
   Contact,
@@ -23,7 +22,6 @@ export default function Home() {
         <Services />
         <Industries />
         <Process />
-        <SisterCompany />
         <Coverage />
         <CtaBand />
         <Contact />

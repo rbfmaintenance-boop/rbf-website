@@ -16,7 +16,7 @@ const NAV = [
 ];
 
 /**
- * Two-tier header like Buildate's: a large centered logo above a nav bar.
+ * Two-tier header: a large centered logo above a nav bar.
  * On scroll the logo row folds away and the nav bar stays, with a small logo and button.
  * overlay: transparent over the home page hero until the page scrolls.
  */

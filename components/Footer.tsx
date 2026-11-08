@@ -37,7 +37,7 @@ export default function Footer() {
         </div>
         <div className="x-footer-bottom">
           <p>
-            © {new Date().getFullYear()} {LEGAL_NAME}. A sister company of Buildate.
+            © {new Date().getFullYear()} {LEGAL_NAME}. Commercial maintenance across Illinois.
           </p>
           <nav className="x-footer-legal" aria-label="Legal">
             <Link href="/privacy">Privacy Policy</Link>

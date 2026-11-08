@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
-import { FootprintMap } from "./Maps";
 import ProcessTimeline from "./ProcessTimeline";
 import IllinoisCoverage from "./IllinoisCoverage";
 import HeroSlideshow from "./HeroSlideshow";
@@ -36,7 +35,7 @@ export function Hero() {
       />
       <div className="x-hero-shade" aria-hidden="true" />
       <div className="x-wrap x-hero-inner">
-        <p className="x-kicker x-in x-in-1">Backed by Buildate since 2000</p>
+        <p className="x-kicker x-in x-in-1">One call. Every trade.</p>
         <h1 className="x-in x-in-2">
           <span>Commercial maintenance and repairs</span>
           <span className="x-accent">across Illinois</span>
@@ -63,23 +62,23 @@ export function About() {
     <section id="about" className="x-section">
       <div className="x-wrap x-center" data-reveal>
         <h2 className="x-title">About RBF Maintenance</h2>
-        <p className="x-slogan">One call. Every trade.</p>
+        <p className="x-slogan">One team, start to finish</p>
         <div className="x-about-text">
           <p>
-            RBF Maintenance is the Illinois sister company of Buildate, a commercial contractor that has served property
-            and facility managers in Texas since 2000.
+            RBF Maintenance handles commercial maintenance and repairs for property and facility managers across
+            Illinois, from single service calls to multi-site programs.
           </p>
           <p>
-            We bring the same coordinators, the same process and the same closeout standards to Illinois. One team
-            schedules the work, does it and reports back, so you never chase separate vendors for one problem.
+            One team schedules the work, does it and reports back with photos, so you never chase separate vendors
+            for one problem.
           </p>
         </div>
       </div>
       <div className="x-wrap">
         <Metrics
           items={[
-            { value: 26, suffix: "+", label: "Years of experience through Buildate" },
             { value: 8, label: "Trades under one request" },
+            { value: 6, label: "Industries served" },
             { value: 1, label: "Point of contact for every job" },
             { value: 100, suffix: "%", label: "Directly managed work" },
           ]}
@@ -263,30 +262,6 @@ export function Process() {
           </ul>
           <figcaption className="sr-only">Sample of the closeout report you receive after every job</figcaption>
         </figure>
-      </div>
-    </section>
-  );
-}
-
-export function SisterCompany() {
-  return (
-    <section className="x-section x-section--mist">
-      <div className="x-wrap x-split x-split--map">
-        <figure className="x-map x-map--us" data-reveal>
-          <FootprintMap />
-        </figure>
-        <div data-reveal>
-          <h2 className="x-title x-title--left">Backed by Buildate</h2>
-          <p className="x-slogan x-slogan--left">Texas since 2000, now in Illinois</p>
-          <p className="x-body">
-            Buildate has handled commercial maintenance and repairs for property and facility managers across Texas
-            since 2000. RBF Maintenance brings the same trades, the same process and the same closeout standards to
-            properties in Illinois.
-          </p>
-          <a className="x-link" href="https://buildategroup.com" target="_blank" rel="noopener noreferrer">
-            Visit buildategroup.com
-          </a>
-        </div>
       </div>
     </section>
   );

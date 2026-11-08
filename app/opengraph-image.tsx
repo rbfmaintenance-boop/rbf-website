@@ -26,7 +26,7 @@ export default function OpenGraphImage() {
             Commercial repairs and maintenance across Illinois
           </div>
           <div style={{ display: "flex", marginTop: 28, fontSize: 30, color: "#c3cad2" }}>
-            Electrical, plumbing, HVAC and interior work. A sister company of Buildate.
+            Electrical, plumbing, HVAC and interior work for commercial properties.
           </div>
         </div>
         <div style={{ display: "flex", width: 180, height: 8, background: "#b8893b" }} />
