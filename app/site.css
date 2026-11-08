@@ -1419,6 +1419,14 @@ section[id] {
   color: var(--brass-light);
 }
 
+.x-pf-pin-label--dark {
+  color: var(--ink-950);
+}
+
+.x-pf-pin.is-active .x-pf-pin-label--dark {
+  color: var(--brass-text);
+}
+
 .x-pf-caption {
   margin: 14px 0 0;
   font-family: var(--font-display);

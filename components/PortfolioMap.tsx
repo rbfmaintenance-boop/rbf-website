@@ -31,10 +31,11 @@ const SYSTEMS: System[] = [
   { area: "Exterior and parking", trade: "Lighting and fencing", scope: "Wall packs and parking lot lights, fence and gate repairs.", vendor: "Electrician and fence company", count: 2, form: "Multiple trades", x: 540, y: 168 },
 ];
 
-type Site = { name: string; type: string; sys: number; task: string; side: "start" | "end"; dy: number; x: number; y: number };
+type Site = { name: string; type: string; sys: number; task: string; side: "start" | "end"; dy: number; dark?: boolean; x: number; y: number };
 
 const SITE_DATA: Omit<Site, "x" | "y">[] = [
-  { name: "Chicago", type: "Office building", sys: 3, task: "Added dedicated circuits for a new tenant", side: "end", dy: -12 },
+  // Chicago sits on the lake shore, so its label goes over the lake in dark text
+  { name: "Chicago", type: "Office building", sys: 3, task: "Added dedicated circuits for a new tenant", side: "start", dy: -4, dark: true },
   { name: "Naperville", type: "Medical office", sys: 2, task: "Cleared a restroom drain line", side: "end", dy: 12 },
   { name: "Rockford", type: "Retail center", sys: 0, task: "Serviced a rooftop unit", side: "end", dy: 0 },
   { name: "Peoria", type: "Office building", sys: 1, task: "Patched and painted suite walls", side: "end", dy: 0 },
@@ -47,7 +48,7 @@ const SITES: Site[] = SITE_DATA.map((s) => {
 });
 
 const VENDORS = [
-  { label: "Electrician", x: 560, y: 120 },
+  { label: "Electrician", x: 575, y: 62 },
   { label: "Plumber", x: 590, y: 225 },
   { label: "HVAC company", x: 565, y: 450 },
   { label: "Flooring installer", x: 545, y: 590 },
@@ -141,7 +142,7 @@ export default function PortfolioMap() {
               {SITES.map((x, i) => (
                 <div key={x.name} className={`x-pf-pin${i === site ? " is-active" : ""}`} style={{ left: pct(x.x, MW), top: pct(x.y, MH) }}>
                   <span
-                    className={`x-pf-pin-label x-pf-pin-label--${x.side}`}
+                    className={`x-pf-pin-label x-pf-pin-label--${x.side}${x.dark ? " x-pf-pin-label--dark" : ""}`}
                     style={{ ["--dy" as string]: `${x.dy}px` }}
                     aria-hidden="true"
                   >
